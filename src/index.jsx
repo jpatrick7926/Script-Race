@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import Languages from './components/languages.jsx';
 
 class App extends React.Component {
   constructor(props){
@@ -11,8 +12,16 @@ class App extends React.Component {
   }
 
   render () {
-    return(<div>
-      <h1>SCRIPT-RACE</h1>
+    return(
+    <div>
+      <div className="jumbotron text-center">
+        <h1>SCRIPT-RACE</h1>
+      </div>
+      <nav className="navbar">
+        <div className="col-md-6 offset-md-3">
+          <Languages/>
+        </div>
+      </nav>
     </div>)
   }
 }
