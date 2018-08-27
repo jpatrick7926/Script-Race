@@ -32,14 +32,14 @@ class App extends React.Component {
           <Languages/>
         </div>
       </nav>
-      <div className="row">
+      <div className="row" style={{margin: '300px'}}>
         <div className="boxed" style={divStyle}>
           In a Box!
         </div>
         <div className="col-md-9 offset-md-5" style={{margin:'20px'}}>
           this needs to be the data that is to be copied
         </div>
-        <div>
+        <div style={{margin: '25px',}}>
           <Stopwatch/>
         </div>
       </div>
