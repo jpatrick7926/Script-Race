@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Languages from './components/languages.jsx';
 import Stopwatch from './components/Stopwatch.jsx';
+import GoButton from './components/GoButton.jsx';
+import Levels from './components/Levels.jsx';
 
 var divStyle = {
-  margin: '25px',
-  color: 'red',
-  border: '1px dashed pink'
+
 }
 
 class App extends React.Component {
@@ -14,12 +14,24 @@ class App extends React.Component {
     super(props);
     this.state = {
       currentLanguage: 'none',
-      start: false,
+      startTime: false,
 
     }
-
+    this.handleStop = this.handleStop.bind(this);
+    this.handleStart = this.handleStart.bind(this);
   }
 
+  handleStart() {
+    this.setState({
+      startTime: true
+    })
+  }
+
+  handleStop() {
+    this.setState({
+      startTime: false
+    })
+  }
 
   render () {
     return(
@@ -30,18 +42,20 @@ class App extends React.Component {
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
           <Languages/>
+          <Levels/>
         </div>
       </nav>
-      <div className="row" style={{margin: '300px'}}>
-        <div className="boxed" style={divStyle}>
+      <div style={{margin: '50px', width: '500px'}}>
+        <div style={{border: '1px solid green', height: '200px'}}>
           In a Box!
         </div>
-        <div className="col-md-9 offset-md-5" style={{margin:'20px'}}>
+        <div style={{border: '1px solid red', height: '200px'}}>
           this needs to be the data that is to be copied
         </div>
-        <div style={{margin: '25px',}}>
-          <Stopwatch/>
-        </div>
+        <GoButton handleStart={this.handleStart}/>
+      </div>
+      <div style={{}}>
+        <Stopwatch startTime={this.state.startTime} handleStop={this.handleStop}/>
       </div>
     </div>)
   }

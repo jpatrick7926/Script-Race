@@ -12,16 +12,16 @@ class Stopwatch extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
     this.startButton = this.startButton.bind(this);
-    this.handleStop = this.handleStop.bind(this);
+    this.handleFirstStop = this.handleFirstStop.bind(this);
     this.currentSec = this.state.seconds;
   };
 
   startButton(secs) {
-    if(secs === 0){
-      return <button onClick={this.handleClick}>START</button>
-    }
-    else {
-      return <button onClick={this.handleStop}>STOP</button>
+    if(this.props.startTime === true){
+      if(this.state.seconds === 0) {
+        this.handleClick();
+      }
+      return <button onClick={this.handleFirstStop}>STOP</button>
     }
   }
 
@@ -37,11 +37,12 @@ class Stopwatch extends React.Component {
       ,1000)
   }
 
-  handleStop() {
+  handleFirstStop() {
     clearInterval(this.currentSec)
     this.setState({
       seconds: 0
     })
+    this.props.handleStop();
   }
 
   render() {
