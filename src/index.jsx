@@ -4,6 +4,12 @@ import Languages from './components/languages.jsx';
 import Stopwatch from './components/Stopwatch.jsx';
 import GoButton from './components/GoButton.jsx';
 import Levels from './components/Levels.jsx';
+import CopyData from './components/CopyData.jsx';
+
+var sampleData = {
+  javascript1: "console.log('Hello world! My name is bot, and I am very excited to learn more about Javascript!');",
+  javascript2: "if(learnToCode === true) { console.log('I learned something today!'); };"
+}
 
 var divStyle = {
 
@@ -46,11 +52,11 @@ class App extends React.Component {
         </div>
       </nav>
       <div style={{margin: '50px', width: '500px'}}>
-        <div style={{border: '1px solid green', height: '200px'}}>
-          In a Box!
+        <div style={{border: '1px solid green', height: '200px', fontSize: 40, textAlign: 'center', fontWeight: 'bold'}}>
+          Press Go!
         </div>
         <div style={{border: '1px solid red', height: '200px'}}>
-          this needs to be the data that is to be copied
+          <CopyData sampleData={sampleData}/>
         </div>
         <GoButton handleStart={this.handleStart}/>
       </div>
