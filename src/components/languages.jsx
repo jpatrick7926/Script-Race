@@ -5,15 +5,15 @@ class Languages extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      
+
     }
   }
 
   render() {
     return(<div>
-      <select>
-        <option value="javascript">Javascipt</option>
-        <option value="python">Python</option>
+      <select onChange={this.props.handleLanguage}>
+        <option value="Javascript">Javascipt</option>
+        <option value="Python">Python</option>
         <option value="C++">C++</option>
       </select>
     </div>)
