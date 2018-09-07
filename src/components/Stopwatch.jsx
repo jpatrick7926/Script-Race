@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-var secondsLayout = second => Math.floor(second / 60) + ('0' + second % 60).slice(-2);
+var secondsLayout = second => Math.floor(second / 60) + ":" + ('0' + second % 60).slice(-2);
 
 class Stopwatch extends React.Component {
   constructor(props) {
@@ -47,7 +47,7 @@ class Stopwatch extends React.Component {
 
   render() {
     return (
-      <div style={{ textAlign: 'center', margin: '25px'}}>
+      <div style={{ textAlign: 'center'}}>
         <h1 style={{}}>
           {secondsLayout(this.state.seconds)}
         </h1>
